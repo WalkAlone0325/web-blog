@@ -71,6 +71,7 @@ export default {}
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
   transition: all 0.5s ease;

@@ -42,7 +42,7 @@ export default defineComponent({
     const menulist = ref([
       { title: '首页', path: '/home' },
       { title: '文章', path: '/article' },
-      { title: '日记', path: '/darty' },
+      { title: '日记', path: '/diary' },
       { title: '生活', path: '/live' },
       { title: '关于', path: '/about' },
     ])
