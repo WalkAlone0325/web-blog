@@ -23,8 +23,8 @@ export default {
 
 <style lang="scss" scoped>
 .article-card {
-  width: 386px;
-  height: 500px;
+  width: 280px;
+  height: 450px;
   margin-top: 30px;
   background: darkcyan;
   border-radius: 4px;
@@ -35,7 +35,7 @@ export default {
   transition: 0.4s;
   &:hover {
     box-shadow: 0 0 15px #eee;
-    transform: scale(1.03);
+    transform: scale(1.04);
     transition: 0.4s;
   }
   .card-img {

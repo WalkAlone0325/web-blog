@@ -1,7 +1,7 @@
 <template>
   <div>
     diary
-    <CardBox />
+    <CardBox v-for="i in 3" :key="i" />
   </div>
 </template>
 

@@ -23,6 +23,7 @@
               @click="navigate"
             >
               {{ item.title }}
+              <!-- <span>{{ item.title }}</span> -->
             </li>
           </router-link>
         </ul>
@@ -56,7 +57,10 @@ export default defineComponent({
 .header-container {
   width: 100%;
   height: 64px;
-  background: sandybrown;
+  background: rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
   .basic-header {
     width: 86%;
@@ -78,19 +82,121 @@ export default defineComponent({
       display: flex;
       .menu-list {
         display: flex;
+        height: 64px;
+        align-items: center;
         .menu-item {
+          position: relative;
+          display: block;
+          margin: 0 6px;
           padding: 0 20px;
-          line-height: 64px;
+          height: 46px;
+          line-height: 46px;
+          transition: 0.5s;
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            width: 12px;
+            height: 12px;
+            border: 3px solid #b351c2;
+            border-width: 0 0 3px 3px;
+            transition: 0.5s;
+            opacity: 0;
+          }
           &:hover {
-            background: seashell;
+            color: #fff;
+            transition: 0.5s;
+            background: #b351c2;
             cursor: pointer;
           }
+          &:hover::before {
+            bottom: -8px;
+            left: -8px;
+            opacity: 1;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 12px;
+            height: 12px;
+            border: 3px solid #b351c2;
+            border-width: 3px 3px 0 0;
+            transition: 0.5s;
+            opacity: 0;
+          }
+          &:hover::after {
+            top: -8px;
+            right: -8px;
+            opacity: 1;
+          }
         }
+        /*.menu-item {
+          position: relative;
+          transition: 0.5s;
+          span {
+            display: block;
+            margin: 0 6px;
+            // padding: 0 20px;
+            height: 46px;
+            line-height: 46px;
+            transition: 0.5s;
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: 12px;
+              left: 12px;
+              width: 12px;
+              height: 12px;
+              border: 3px solid #b351c2;
+              border-width: 0 0 3px 3px;
+              transition: 0.5s;
+              opacity: 0;
+            }
+            &:hover {
+              color: #fff;
+              transition: 0.5s;
+              background: #b351c2;
+              cursor: pointer;
+            }
+            &:hover::before {
+              bottom: -8px;
+              left: -8px;
+              opacity: 1;
+            }
+            &::after {
+              content: '';
+              position: absolute;
+              top: 12px;
+              right: 12px;
+              width: 12px;
+              height: 12px;
+              border: 3px solid #b351c2;
+              border-width: 3px 3px 0 0;
+              transition: 0.5s;
+              opacity: 0;
+            }
+            &:hover::after {
+              top: -8px;
+              right: -8px;
+              opacity: 1;
+            }
+          }
+        }*/
       }
       .menu-setting {
         line-height: 64px;
       }
     }
   }
+}
+.router-link-exact-active,
+.router-link-active {
+  color: #fff;
+  transition: 0.5s;
+  background: #b351c2;
+  cursor: pointer;
 }
 </style>

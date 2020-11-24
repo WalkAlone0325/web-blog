@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <ProfileCard />
+  <div class="about-page">
+    <div>
+      <h1>Loner</h1>
+      <span>小小的前端开发</span>
+      <div>家乡：山西省朔州市</div>
+    </div>
+    <ProfileCard class="about-profile" />
   </div>
 </template>
 
@@ -16,4 +21,13 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.about-page {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  // .about-profile {
+  // }
+}
+</style>

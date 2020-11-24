@@ -51,7 +51,7 @@ export default {}
   display: grid;
   margin: 50px 90px auto;
   grid-gap: 20px;
-  cursor: pointer;
+  // cursor: pointer;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 @media (max-width: 700px) {
@@ -74,7 +74,7 @@ export default {}
   align-items: center;
   justify-content: center;
   box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
-  transition: all 0.5s ease;
+  transition: all 0.8s ease;
 }
 .box .front-face .icon {
   height: 80px;
@@ -109,7 +109,7 @@ export default {}
   background: linear-gradient(-135deg, #c850c0, #4158d0);
   transform: translateY(110px) rotateX(-90deg);
   box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
-  transition: all 0.5s ease;
+  transition: all 0.8s ease;
 }
 .box .back-face p {
   margin-top: 10px;

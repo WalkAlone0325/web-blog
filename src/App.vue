@@ -22,9 +22,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.router-link-exact-active,
-.router-link-active {
-  background: steelblue;
-  color: #fff;
-}
+// .router-link-exact-active,
+// .router-link-active {
+//   background: steelblue;
+//   color: #fff;
+// }
 </style>
