@@ -6,11 +6,20 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { defineComponent, onMounted } from 'vue'
 import CardBox from '../components/CardBox'
 
-export default {
+export default defineComponent({
   components: { CardBox },
-}
+  setup() {
+    // onMounted(async () => {
+    // let url = 'http://localhost:7001'
+    // const res = axios.get(`/api/diary/lists`)
+    // console.log(res)
+    // })
+  },
+})
 </script>
 
 <style></style>
