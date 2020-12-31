@@ -10,7 +10,7 @@
       <div class="content-desc">
         <h2>{{ settingVal.title }}</h2>
         <div>{{ settingVal.content_info }}</div>
-        <span class="content-btn">继续阅读→</span>
+        <span class="content-btn" @click="$router.push('/about')">继续阅读→</span>
       </div>
       <div class="content-img">
         <img :src="settingVal.img_url" alt="" />
