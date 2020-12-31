@@ -1,7 +1,7 @@
 <template>
   <div>
-    Live.vue
     <AccordionCom />
+    <h2>下面还没有计划。。。</h2>
   </div>
 </template>
 

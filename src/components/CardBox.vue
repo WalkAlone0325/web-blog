@@ -1,43 +1,18 @@
 <template>
-  <div class="card-box">
-    <div class="box">
-      <div class="front-face">
-        <div class="icon"><i class="iconfont">&#xe605;</i></div>
-        <span>Web Design</span>
+  <div class="box">
+    <div class="front-face">
+      <div class="icon">
+        天气：
+        <i class="iconfont">&#xe605;</i>
       </div>
-      <div class="back-face">
-        <span>Web Design</span>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem in deleniti vitae beatae
-          veritatis aliquid porro perspiciatis dolores impedit ad.
-        </p>
-      </div>
+      <span>Web Design</span>
     </div>
-    <div class="box">
-      <div class="front-face">
-        <div class="icon"><i class="iconfont">&#xe606;</i></div>
-        <span>Advertising</span>
-      </div>
-      <div class="back-face">
-        <span>Advertising</span>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem in deleniti vitae beatae
-          veritatis aliquid porro perspiciatis dolores impedit ad.
-        </p>
-      </div>
-    </div>
-    <div class="box">
-      <div class="front-face">
-        <div class="icon"><i class="iconfont">&#xe607;</i></div>
-        <span>Game Design</span>
-      </div>
-      <div class="back-face">
-        <span>Game Design</span>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem in deleniti vitae beatae
-          veritatis aliquid porro perspiciatis dolores impedit ad.
-        </p>
-      </div>
+    <div class="back-face">
+      <span>Web Design</span>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem in deleniti vitae beatae
+        veritatis aliquid porro perspiciatis dolores impedit ad.
+      </p>
     </div>
   </div>
 </template>
@@ -47,25 +22,13 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.card-box {
-  display: grid;
-  margin: 50px 90px auto;
-  grid-gap: 20px;
-  // cursor: pointer;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-}
-@media (max-width: 700px) {
-  .card-box {
-    margin: 200px auto;
-  }
-}
-.card-box .box {
+.box {
   width: 350px;
   margin: 0 auto;
   position: relative;
   perspective: 1000px;
 }
-.card-box .box .front-face {
+.box .front-face {
   background: #fff;
   height: 220px;
   width: 100%;
@@ -88,7 +51,8 @@ export default {}
   font-weight: 600;
   text-transform: uppercase;
 }
-.box .front-face .icon i,
+.box .front-face .icon i {
+}
 .box .front-face span {
   background: linear-gradient(-135deg, #c850c0, #4158d0);
   background-clip: text;

@@ -1,7 +1,10 @@
 <template>
   <div>
     diary
-    <CardBox v-for="i in 3" :key="i" />
+
+    <div class="card-box">
+      <CardBox v-for="i in 6" :key="i" />
+    </div>
   </div>
 </template>
 
@@ -22,4 +25,17 @@ export default defineComponent({
 })
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.card-box {
+  display: grid;
+  margin: 50px 90px auto;
+  grid-gap: 20px;
+  // cursor: pointer;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+@media (max-width: 700px) {
+  .card-box {
+    margin: 200px auto;
+  }
+}
+</style>
