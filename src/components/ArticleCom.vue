@@ -5,20 +5,35 @@
       <span class="article-desc">留住生活中的点点滴滴，贵在记录和分享</span>
     </div>
     <div class="article-list">
-      <ArticleCard v-for="i in 9" :key="i" />
+      <ArticleCard
+        v-for="item in articleList"
+        :key="item._id"
+        :item="item"
+        @click="handleToDetail(item._id)"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
 import ArticleCard from './ArticleCard'
 
-export default {
+export default defineComponent({
+  props: ['articleList'],
+
   setup() {
-    return {}
+    const router = useRouter()
+
+    const handleToDetail = id => {
+      router.replace(`/article/${id}`)
+    }
+
+    return { handleToDetail }
   },
   components: { ArticleCard },
-}
+})
 </script>
 
 <style lang="scss" scoped>

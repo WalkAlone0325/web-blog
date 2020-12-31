@@ -1,73 +1,44 @@
 <template>
   <div class="archive-page">
     <div class="page_container">
-      <ArchiveItem v-for="(item, index) in list" :key="index" :list="item"></ArchiveItem>
-
-      <!-- <ArchiveItem :title="archiveList" :list="archiveList"></ArchiveItem> -->
+      <ArchiveItem
+        v-for="(item, key, index) in list"
+        :key="index"
+        :title="key"
+        :list="item"
+      ></ArchiveItem>
     </div>
   </div>
 </template>
 
 <script>
+import { computed, defineComponent, getCurrentInstance, onMounted, ref } from 'vue'
 import ArchiveItem from '../components/ArchiveItem'
-// import { timeFormat } from '../utils/filters'
+import { timeFormat } from '../utils/util'
 
-export default {
-  data() {
-    return {
-      archiveList: [],
-    }
-  },
-  created() {
-    this.getArchive()
-  },
-  methods: {
-    // async getArchive() {
-    //   const res = await this.$http.get('/archives')
-    //   this.archiveList = res.data.archiveList
-    //   this.archiveList.map(item => {
-    //     return {
-    //       _id: item._id,
-    //       title: item.title,
-    //       // created: timeFormat(item.created),
-    //       // updated: timeFormat(item.updated),
-    //     }
-    //   })
-    // },
-    getArchive() {
-      this.archiveList = [
-        {
-          title: '摸宝',
-          _id: '1-1',
-          created: '2020-11-23',
-        },
-        {
-          title: '凯宝',
-          _id: '2-1',
-          created: '2020-11-23',
-        },
-        {
-          title: '舟宝',
-          _id: '3-1',
-          created: '2020-11-23',
-        },
-        {
-          title: '慕宝',
-          _id: '4-1',
-          created: '2020-11-23',
-        },
-      ]
+export default defineComponent({
+  setup() {
+    const archiveList = ref([])
+    const { ctx } = getCurrentInstance()
 
-      this.archiveList.map(item => {
+    onMounted(() => {
+      getArchive()
+    })
+
+    const getArchive = async () => {
+      const res = await ctx.$axios.get('/article')
+      archiveList.value = res.data.data
+      archiveList.value.map(item => {
         return {
           _id: item._id,
           title: item.title,
-          created: item.created,
-          // created: timeFormat(item.created),
-          // updated: timeFormat(item.updated),
+          created: timeFormat(item.created),
+          updated: timeFormat(item.updated),
         }
       })
-    },
+    }
+
+    return { archiveList }
   },
   computed: {
     list() {
@@ -79,12 +50,11 @@ export default {
         }
         json[time].push(item)
       })
-      console.log(json)
       return json
     },
   },
   components: { ArchiveItem },
-}
+})
 </script>
 
 <style></style>

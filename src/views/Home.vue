@@ -1,37 +1,66 @@
 <template>
   <div class="home-page">
-    <div class="banner-container">
+    <div class="banner-container" :style="`background: url(${settingVal.bg_img}) no-repeat;`">
       <div class="banner-content">
-        <h1 class="banner-name">Loner</h1>
-        <span class="banner-desc">小小的前端开发者</span>
+        <h1 class="banner-name">{{ settingVal.avator }}</h1>
+        <span class="banner-desc">{{ settingVal.desc }}</span>
       </div>
     </div>
     <div class="content-box">
       <div class="content-desc">
-        <h2>2020 年 重新起航</h2>
-        <div>
-          再见 2019，你好 2020。
-        </div>
-        <div>2020 一切归零，重新起航。</div>
-        <div>即便是诸多不顺，但是我相信一切终将安好，归于平静。</div>
+        <h2>{{ settingVal.title }}</h2>
+        <div>{{ settingVal.content_info }}</div>
         <span class="content-btn">继续阅读→</span>
       </div>
       <div class="content-img">
-        <img src="../assets/img/微信图片_20201028203827.jpg" alt="" />
+        <img :src="settingVal.img_url" alt="" />
       </div>
     </div>
-    <ArticleCom />
+    <ArticleCom :articleList="articleList" />
     <div>123</div>
   </div>
 </template>
 
 <script>
+import { defineComponent, getCurrentInstance, onMounted, ref } from 'vue'
 import ArticleCom from '../components/ArticleCom'
 
-export default {
+export default defineComponent({
   name: 'Home',
+  setup() {
+    const articleList = ref([])
+    const settingVal = ref({})
+    const { ctx } = getCurrentInstance()
+
+    onMounted(() => {
+      getArticleList()
+      getSetting()
+    })
+
+    // methods
+    // 获取文章列表
+    const getArticleList = async () => {
+      // 只取8个在首页
+      const res = await ctx.$axios.get('/article?page=1&size=8')
+      if (res.data.code === 200) {
+        articleList.value = res.data.data
+      }
+    }
+    // 获取设置
+    const getSetting = async () => {
+      const res = await ctx.$axios.get('/setting')
+      if (res.data.code === 200) {
+        settingVal.value = res.data.data[0]
+      }
+    }
+
+    return {
+      articleList,
+      settingVal,
+    }
+  },
   components: { ArticleCom },
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -50,10 +79,6 @@ export default {
       justify-content: center;
       align-items: center;
       color: mediumblue;
-      .banner-name {
-      }
-      .banner-desc {
-      }
     }
   }
   .content-box {
@@ -91,6 +116,10 @@ export default {
       border-radius: 8px;
       // border: mediumblue 1px solid;
       box-shadow: 0px 0px 10px #cacbcd;
+      img {
+        width: 450px;
+        height: 450px;
+      }
     }
   }
 }

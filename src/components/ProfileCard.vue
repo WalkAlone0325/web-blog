@@ -2,38 +2,51 @@
   <div class="profile-card">
     <div class="top-section">
       <div class="pic">
-        <img src="../assets/img/touxiang.png" alt="Error" />
+        <img :src="settingVal.avator_img" alt="Error" />
       </div>
-      <div class="name">独行</div>
-      <div class="tag">@XXXX</div>
+      <div class="name">{{ settingVal.avator }}</div>
+      <div class="tag">{{ settingVal.desc }}</div>
     </div>
     <div class="bottom-section">
-      <h2>图标</h2>
+      <a
+        target="_blank"
+        :href="item.link"
+        class="icon-item"
+        v-for="item in iconList"
+        :key="item._id"
+      >
+        <img :src="item.icon" alt="" />
+        <!-- <span>{{ item.name }}</span> -->
+      </a>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  props: ['settingVal', 'iconList'],
+})
 </script>
 
 <style lang="scss" scoped>
 .profile-card {
   width: 300px;
-  height: 540px;
+  // height: 430px;
   margin-top: 20px;
   overflow: hidden;
   text-align: center;
   box-shadow: 0 0 10px #00000070;
 
   .top-section {
-    padding: 60px 40px;
+    padding: 20px 20px;
     background: #74b9ffaa;
 
     .pic {
       position: relative;
-      width: 150px;
-      height: 150px;
+      width: 100px;
+      height: 100px;
       margin: auto auto 20px auto;
       padding: 4px;
       border: 2px solid #6a89cc;
@@ -58,24 +71,32 @@ export default {}
     }
     .name {
       color: #f1f1f1; /*字体颜色*/
-      font-size: 28px; /*字体大小*/
+      font-size: 26px; /*字体大小*/
       letter-spacing: 2px; /*字符间距*/
       text-transform: uppercase; /*字体大写*/
     }
     .tag {
-      font-size: 18px;
+      font-size: 16px;
       color: #222;
     }
   }
 
   .bottom-section {
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    background-color: #f1f1f1;
-    padding: 60px 20px;
-    font-size: 28px;
-    text-transform: uppercase;
+    margin: 20px 0;
+    .icon-item {
+      transition: all 0.6s;
+      &:hover {
+        transform: scale(1.4);
+        transition: all 0.6s;
+      }
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
   }
 }
 @keyframes wava {

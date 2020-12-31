@@ -1,35 +1,27 @@
 <template>
   <div class="arch-item">
     <div class="arch-item-title">
-      <span>{{ list.created }}</span>
-      <!-- <span>{{ title | format }}</span> -->
+      <span>{{ format(title) }}</span>
     </div>
     <ul>
-      <!-- <router-link :to="`/article/${item._id}`" v-for="(item, index) in list" :key="index"> -->
-      <!-- <li>{{ item }}</li> -->
-      <!-- <li>{{ item.created.substring(0, 10) + ' => ' + item.title }}</li> -->
-      <!-- </router-link> -->
-      <router-link :to="`/article/${list._id}`">
-        <li>{{ list.title }}</li>
+      <router-link :to="`/article/${item._id}`" v-for="(item, index) in list" :key="index">
+        <li>{{ item.created.substring(0, 10) + ' => ' + item.title }}</li>
       </router-link>
     </ul>
   </div>
 </template>
 
 <script>
-export default {
-  props: ['list', 'title', 'key'],
-  // filters: {
-  //   format(val) {
-  //     let arr = val.split('-')
-  //     return `${arr[0]} 年 ${arr[1]} 月`
-  //   },
-  // },
-  mounted() {
-    console.log(this.title)
-    console.log(this.list)
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  props: ['list', 'title'],
+  setup(props) {
+    return {
+      format: val => `${val.split('-')[0]} 年 ${val.split('-')[1]} 月`,
+    }
   },
-}
+})
 </script>
 
 <style lang="scss">

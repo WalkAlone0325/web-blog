@@ -1,24 +1,30 @@
 <template>
   <div class="article-card">
-    <img class="card-img" src="../assets/img/微信图片_20201028203827.jpg" alt="" />
+    <img class="card-img" :src="item.img_url" alt="" />
     <div class="card-content">
-      <h4 class="card-title">前端构建新玩法：Vite 上手与思考</h4>
+      <h4 class="card-title">{{ item.title }}</h4>
       <div class="card-desc">
-        Vite 的定义 Vite 是面向现代浏览器的一个更轻、更快的 Web 应用开发工具，核心基于 ECMAScript …
+        {{ item.desc }}
       </div>
     </div>
     <div class="card-foot">
-      <span>创建时间：2020-11-23</span>
+      <span>更新时间：{{ timeFormat(item.updated) }}</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+import { timeFormat } from '../utils/util'
+
+export default defineComponent({
+  props: ['item'],
   setup() {
-    return {}
+    return {
+      timeFormat,
+    }
   },
-}
+})
 </script>
 
 <style lang="scss" scoped>
