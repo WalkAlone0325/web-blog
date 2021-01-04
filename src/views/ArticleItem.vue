@@ -191,7 +191,7 @@ export default defineComponent({
     justify-content: space-between;
     align-items: flex-start;
     width: 84%;
-    margin: 10px auto;
+    margin: 10px auto 0;
     .detail-left {
       width: 80%;
     }

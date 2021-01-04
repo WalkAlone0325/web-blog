@@ -45,6 +45,7 @@ export default defineComponent({
       { title: '文章', path: '/article' },
       { title: '日记', path: '/diary' },
       { title: '生活', path: '/live' },
+      { title: '链接', path: '/link' },
       { title: '关于', path: '/about' },
     ])
 
