@@ -1,6 +1,11 @@
 <template>
   <div class="home-page">
-    <div class="banner-container" :style="`background: url(${settingVal.bg_img}) no-repeat;`">
+    <div
+      class="banner-container"
+      :style="
+        `background: url(${settingVal.bg_img}) no-repeat;background-size: cover;background-position: center;object-fit: cover;`
+      "
+    >
       <div class="banner-content">
         <h1 class="banner-name">{{ settingVal.avator }}</h1>
         <span class="banner-desc">{{ settingVal.desc }}</span>
@@ -70,7 +75,8 @@ export default defineComponent({
     height: calc(100vh - 64px);
     background: url('../assets/img/20170917.jpg') no-repeat;
     background-size: cover;
-    background-position: center 0;
+    background-position: center;
+    object-fit: cover;
     .banner-content {
       width: 100%;
       height: 100%;
@@ -111,14 +117,16 @@ export default defineComponent({
       }
     }
     .content-img {
+      width: 450px;
+      height: 450px;
       padding: 10px;
       background: #fff;
       border-radius: 8px;
       // border: mediumblue 1px solid;
       box-shadow: 0px 0px 10px #cacbcd;
       img {
-        width: 450px;
-        height: 450px;
+        width: 100%;
+        height: 100%;
       }
     }
   }

@@ -33,6 +33,8 @@ export default defineComponent({
   height: 450px;
   margin-top: 30px;
   background: darkcyan;
+  // margin: 30px 0px 0;
+  margin-left: 30px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;

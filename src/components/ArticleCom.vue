@@ -57,8 +57,8 @@ export default defineComponent({
     width: 80%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: flex-start;
   }
 }
 </style>
