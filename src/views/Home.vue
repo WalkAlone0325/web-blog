@@ -22,7 +22,6 @@
       </div>
     </div>
     <ArticleCom :articleList="articleList" />
-    <div>123</div>
   </div>
 </template>
 

@@ -59,6 +59,7 @@ export default defineComponent({
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-bottom: 20px;
   }
 }
 </style>

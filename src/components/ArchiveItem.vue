@@ -28,6 +28,7 @@ export default defineComponent({
 .arch-item {
   width: 80%;
   margin: 0 auto;
+  margin-left: 200px;
   border-left: 2px solid #3495db;
 
   .arch-item-title {
@@ -43,6 +44,7 @@ export default defineComponent({
     padding-left: 50px;
     font-size: 16px;
     list-style: none;
+    width: 500px;
     a {
       text-decoration: none;
       li {
