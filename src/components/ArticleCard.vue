@@ -30,7 +30,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .article-card {
   width: 280px;
-  height: 450px;
+  height: 400px;
   margin-top: 30px;
   background: darkcyan;
   // margin: 30px 0px 0;
@@ -48,7 +48,7 @@ export default defineComponent({
   }
   .card-img {
     width: 100%;
-    height: 300px;
+    height: 260px;
     overflow: hidden;
     border-radius: 4px 4px 0 0;
   }
